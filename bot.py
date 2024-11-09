@@ -1,16 +1,17 @@
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-import time  
+import time  # لإضافة التأخير بين الردود
 
 bot = telebot.TeleBot('8191049181:AAGpqs9BQ_BJVa8oeNhsvPFDNxbfcc9BtrI')
 
 @bot.message_handler(func=lambda message: message.text == "الشخصيات")
 def send_welcome(message):
+    # تنسيق رسالة التنبيه مع تضمين رابط حساب المستخدم داخل اسمه
+    username = message.from_user.username if message.from_user.username else "لا يوجد اسم مستخدم"
     bot.send_message(
         message.chat.id, 
         f"يرجى الانتظار، الكود يتأخر قليلاً لأغراض الأمان.\n"
-        f"اسم المستخدم: {message.from_user.first_name}\n"
-        f"رابط حسابه: [رابط حسابه](https://t.me/{message.from_user.username})", 
+        f"اسم المستخدم: [{message.from_user.first_name}](https://t.me/{username})", 
         parse_mode="Markdown"
     )
     
@@ -30,9 +31,12 @@ def send_welcome(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    time.sleep(2)
+    # تأخير 5 ثواني بين الردود
+    time.sleep(5)
     
+    # التأكد من الشخص الذي قام بالضغط
     if call.from_user.id == call.message.chat.id:
+        # إرسال الرد بناءً على الزر الذي تم الضغط عليه
         if call.data == "button1":
             bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1188", caption="[ابن هاشم](https://t.me/K_4x1)\nمبرمج مصمم طالب مدرسي يشتغل بالعطور ويلعب جيم \n دائما مشغول لان يشتغل 33 ساعة باليوم", parse_mode="Markdown")
         elif call.data == "button2":
