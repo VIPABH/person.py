@@ -6,14 +6,14 @@ bot = telebot.TeleBot('8191049181:AAGpqs9BQ_BJVa8oeNhsvPFDNxbfcc9BtrI')
 
 @bot.message_handler(func=lambda message: message.text == "الشخصيات")
 def send_welcome(message):
-    username = message.from_user.username if message.from_user.username else "لا يوجد اسم مستخدم"
+    # إرسال رسالة تتضمن ID المستخدم
     bot.send_message(
         message.chat.id, 
         f"يرجى الانتظار، الكود يتأخر قليلاً لأغراض الأمان.\n"
-        f"اسم المستخدم: [{message.from_user.first_name}](https://t.me/{username})", 
-        parse_mode="Markdown"
+        f"ID المستخدم: {message.from_user.id}\nرابط حسابه: https://t.me/{message.from_user.id}"
     )
     
+    # إعداد الأزرار
     markup = InlineKeyboardMarkup()
     button1 = InlineKeyboardButton("ابن هاشم", callback_data="button1")
     button2 = InlineKeyboardButton("لبن", callback_data="button2")
@@ -23,15 +23,16 @@ def send_welcome(message):
     button6 = InlineKeyboardButton("مقتدئ(cos)", callback_data="button6")
     button7 = InlineKeyboardButton("زيد", callback_data="button7")
     button8 = InlineKeyboardButton("باترك", callback_data="button8")
-    button9 = InlineKeyboardButton("امير البصراوي ", callback_data="button9")
+    button9 = InlineKeyboardButton("امير البصراوي", callback_data="button9")
 
     markup.add(button1, button2, button3, button4, button5, button6, button7, button8, button9)
     bot.send_message(message.chat.id, "اختر شخصية🌚", reply_markup=markup)
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    time.sleep(5)
-    
+    time.sleep(5)  # تأخير لمدة 5 ثواني
+
+    # التحقق من أن صاحب الضغط هو نفس الشخص الذي أرسل الرسالة
     if call.from_user.id == call.message.chat.id:
         if call.data == "button1":
             bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1188", caption="[ابن هاشم](https://t.me/K_4x1)\nمبرمج مصمم طالب مدرسي يشتغل بالعطور ويلعب جيم \n دائما مشغول لان يشتغل 33 ساعة باليوم", parse_mode="Markdown")
