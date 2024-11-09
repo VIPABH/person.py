@@ -4,7 +4,7 @@ import time
 
 bot = telebot.TeleBot('8191049181:AAGpqs9BQ_BJVa8oeNhsvPFDNxbfcc9BtrI')
 
-@bot.message_handler(func=lambda message: message.text == ("الشخصيات"|"ابدا))
+@bot.message_handler(func=lambda message: message.text == "الشخصيات" or message.text == "ابدا")
 def send_welcome(message):
     username = message.from_user.username if message.from_user.username else "لا يوجد اسم مستخدم"
     bot.send_message(
