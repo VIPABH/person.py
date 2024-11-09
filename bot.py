@@ -22,9 +22,9 @@ def send_welcome(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    # إرسال رسالة تنبيه واحدة فقط عند الضغط على الزر الأساسي
-    bot.answer_callback_query(call.id, text="يرجى الانتظار، الكود يتأخر قليلاً لأغراض الأمان.", show_alert=True)
-    
+    # إرسال رسالة للمستخدم تفيد بتأخير الكود
+    bot.send_message(call.message.chat.id, "يرجى الانتظار، الكود يتأخر قليلاً لأغراض الأمان.")
+
     # تأخير 5 ثواني بين الردود
     time.sleep(5)
 
@@ -50,6 +50,6 @@ def callback_query(call):
         elif call.data == "button9":
             bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1201", caption="[امير البصراوي](https://t.me/xcxx1x)\nالكشاخ مال الكروب \n مشكلتة ميعرف ياخذ صور \n من بداية فجر التاريخ ليومك هاذ مدير وماعتقد يصعد", parse_mode="Markdown")
     else:
-        bot.answer_callback_query(call.id, text="لا يمكنك التفاعل مع هذا الزر", show_alert=True)
+        bot.send_message(call.message.chat.id, "لا يمكنك التفاعل مع هذا الزر.")
 
 bot.polling()
