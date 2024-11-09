@@ -1,5 +1,6 @@
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+bot = telebot.TeleBot('8191049181:AAGpqs9BQ_BJVa8oeNhsvPFDNxbfcc9BtrI')
 @bot.message_handler(func=lambda message: message.text == "الشخصيات")
 def send_welcome(message):
     # إنشاء قائمة الأزرار
