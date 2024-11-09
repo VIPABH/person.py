@@ -9,7 +9,8 @@ def send_welcome(message):
     username = message.from_user.username if message.from_user.username else "لا يوجد اسم مستخدم"
     bot.send_message(
         message.chat.id, 
-        f":عذرا[{message.from_user.first_name}](https://t.me/{username})" f"يرجى الانتظار 3 ثواني، البوت يتأخر قليلاً لأغراض الأمان.\n"
+        f":عذرا[{message.from_user.first_name}](https://t.me/{username})"
+        f" يرجى الانتظار 3 ثواني، البوت يتأخر قليلاً لأغراض الأمان.\n",
         parse_mode="Markdown"
     )
     
