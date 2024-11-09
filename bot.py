@@ -11,7 +11,7 @@ def send_welcome(message):
         message.chat.id, 
         f"يرجى الانتظار، الكود يتأخر قليلاً لأغراض الأمان.\n" f"اسم المستخدم: [{message.from_user.first_name}](https://t.me/{username})", 
         parse_mode="Markdown"
-    
+    )
     markup = InlineKeyboardMarkup()
     button1 = InlineKeyboardButton("ابن هاشم", callback_data="button1")
     button2 = InlineKeyboardButton("لبن", callback_data="button2")
