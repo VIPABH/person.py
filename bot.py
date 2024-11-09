@@ -4,13 +4,13 @@ import time
 
 bot = telebot.TeleBot('8191049181:AAGpqs9BQ_BJVa8oeNhsvPFDNxbfcc9BtrI')
 
-@bot.message_handler(func=lambda message: message.text == "الشخصيات")
+@bot.message_handler(func=lambda message: message.text == "الشخصيات" or  message.text == "ابدا")
 def send_welcome(message):
     username = message.from_user.username if message.from_user.username else "لا يوجد اسم مستخدم"
     bot.send_message(
         message.chat.id, 
         f":عذرا[{message.from_user.first_name}](https://t.me/{username})"
-        f" يرجى الانتظار ثانيتان بعد الضغطة، البوت يتأخر قليلاً لأغراض الأمان.\n",
+        f" يرجى الانتظار ثلاث ثواني بعد الضغطة، البوت يتأخر قليلاً لأغراض الأمان.\n",
         parse_mode="Markdown"
     )
     
@@ -31,7 +31,7 @@ def send_welcome(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
 
-    time.sleep(1)
+    time.sleep(2)
     
   
     if call.from_user.id == call.message.chat.id:
