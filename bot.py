@@ -10,7 +10,7 @@ def send_welcome(message):
     bot.send_message(
         message.chat.id, 
         f"عذرا [{message.from_user.first_name}](https://t.me/{username})", 
-        f"يرجى الانتظار ثلاث ثواني، البوت يتأخر قليلاً لأغراض الأمان.\n"
+        f"يرجى الانتظار ثلاث ثواني، البوت يتأخر قليلاً لأغراض الأمان.\n",
         parse_mode="Markdown"
     )
     
