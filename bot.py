@@ -22,14 +22,14 @@ def send_welcome(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    # تنبيه للمستخدم بأن هناك تأخير بسبب الأغراض الأمنية
+    # إرسال رسالة تنبيه واحدة فقط عند الضغط على الزر الأساسي
     bot.answer_callback_query(call.id, text="يرجى الانتظار، الكود يتأخر قليلاً لأغراض الأمان.", show_alert=True)
+    
+    # تأخير 5 ثواني بين الردود
+    time.sleep(5)
 
     # التأكد من الشخص الذي قام بالضغط
     if call.from_user.id == call.message.chat.id:
-        # تأخير 5 ثواني قبل الرد
-        time.sleep(5)
-
         # إرسال الرد بناءً على الزر الذي تم الضغط عليه
         if call.data == "button1":
             bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1188", caption="[ابن هاشم](https://t.me/K_4x1)\nمبرمج مصمم طالب مدرسي يشتغل بالعطور ويلعب جيم \n دائما مشغول لان يشتغل 33 ساعة باليوم", parse_mode="Markdown")
