@@ -22,6 +22,9 @@ def send_welcome(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
+    # تنبيه للمستخدم بأن هناك تأخير بسبب الأغراض الأمنية
+    bot.answer_callback_query(call.id, text="يرجى الانتظار، الكود يتأخر قليلاً لأغراض الأمان.", show_alert=True)
+
     # التأكد من الشخص الذي قام بالضغط
     if call.from_user.id == call.message.chat.id:
         # تأخير 5 ثواني قبل الرد
