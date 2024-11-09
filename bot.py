@@ -10,7 +10,7 @@ def send_welcome(message):
     bot.send_message(
         message.chat.id, 
         f":عذرا[{message.from_user.first_name}](https://t.me/{username})"
-        f" يرجى الانتظار 3 ثواني، البوت يتأخر قليلاً لأغراض الأمان.\n",
+        f" يرجى الانتظار ثانيتان بعد الضغطة، البوت يتأخر قليلاً لأغراض الأمان.\n",
         parse_mode="Markdown"
     )
     
@@ -31,7 +31,7 @@ def send_welcome(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
 
-    time.sleep(3)
+    time.sleep(1)
     
   
     if call.from_user.id == call.message.chat.id:
