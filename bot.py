@@ -3,6 +3,9 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import time
 
 bot = telebot.TeleBot('8191049181:AAGpqs9BQ_BJVa8oeNhsvPFDNxbfcc9BtrI')
+@bot.message_handler(func=lambda message: message.text is not None and 'العربية' in message.text)
+def handle_arabic_message(message):
+    bot.reply_to(message, "اهلا , استخدم `ابدا` او `الشخصيات` لبدء تشغيل البوت ")
 
 @bot.message_handler(func=lambda message: message.text == "الشخصيات" or  message.text == "ابدا")
 def send_welcome(message):
