@@ -1,13 +1,15 @@
+import random
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import time
 
 bot = telebot.TeleBot('8191049181:AAGpqs9BQ_BJVa8oeNhsvPFDNxbfcc9BtrI')
+
 @bot.message_handler(commands=['start'])
 def handle_start(message):
     bot.reply_to(message, "اهلا, استخدم `ابدا` أو `الشخصيات` لبدء تشغيل البوت", parse_mode='Markdown')
 
-@bot.message_handler(func=lambda message: message.text == "الشخصيات" or  message.text == "ابدا")
+@bot.message_handler(func=lambda message: message.text == "الشخصيات" or message.text == "ابدا")
 def send_welcome(message):
     username = message.from_user.username if message.from_user.username else "لا يوجد اسم مستخدم"
     bot.send_message(
@@ -33,10 +35,8 @@ def send_welcome(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-
     time.sleep(2)
-    
-  
+
     if call.from_user.id == call.message.chat.id:
 
         if call.data == "button1":
@@ -60,4 +60,9 @@ def callback_query(call):
     else:
         bot.send_message(call.message.chat.id, "لا يمكنك التفاعل مع هذا الزر.")
 
-bot.polling()
+while True:
+    try:
+        bot.polling(none_stop=True)  # إذا حدث خطأ، سيستمر البوت في العمل
+    except Exception as e:
+        print(f"حدث خطأ: {e}")
+        time.sleep(15)  # الانتظار لفترة قصيرة قبل محاولة إعادة التشغيل
