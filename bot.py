@@ -46,9 +46,9 @@ def callback_query(call):
         elif call.data == "button3":
             bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1190", caption="[هاكس](https://t.me/c7cce)\nمتسلط عنصري ضد الرجال ودائما هوه حق ما يحب يتحايز للخطأ \n شخصية قيادية", parse_mode="Markdown")
         elif call.data == "button4":
-            bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1202", caption="[ياسر الواع](https://t.me/pxjpx)قائد قوات الشتبوست ومؤسس الجيل الذهبي \n انعرف فتره ب عداوته وي ابو علوش ومساعد", parse_mode="Markdown")  
+            bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1202", caption="[ياسر الواع](https://t.me/pxjpx)\nقائد قوات الشتبوست ومؤسس الجيل الذهبي \n انعرف فتره ب عداوته وي ابو علوش ومساعد", parse_mode="Markdown")  
         elif call.data == "button5":
-            bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1191", caption="[الولائي](https://t.me/x1_ri)خوش شخص وبنفس الوقت مو خوش \n عنده سيارات ويحب يشارك صورهن بالكروب وهذا السبب الي يخلي العالم تشوفه غثيث \n جان اسمه محمد وصار مرتضئ راسب بالسادس 5 سنوات", parse_mode="Markdown")
+            bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1191", caption="[الولائي](https://t.me/x1_ri)\n خوش شخص وبنفس الوقت مو خوش \n عنده سيارات ويحب يشارك صورهن بالكروب وهذا السبب الي يخلي العالم تشوفه غثيث \n جان اسمه محمد وصار مرتضئ راسب بالسادس 5 سنوات", parse_mode="Markdown")
         elif call.data == "button6":
             bot.send_photo(call.message.chat.id, "https://t.me/VIPABH/1200", caption="[مقتدئ](https://t.me/hiz8s)\nانسان نظيف ادمي \n مشكلتة الوحيده ماعنده مؤنث كله مذكر \n مره يحجي وي وعد يكول الها شبيك غبي", parse_mode="Markdown")
         elif call.data == "button7":
