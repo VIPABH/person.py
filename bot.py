@@ -16,7 +16,7 @@ def send_welcome(message):
         f" يرجى الانتظار ثلاث ثواني بعد الضغطة، البوت يتأخر قليلاً لأغراض الأمان.\n",
         parse_mode="Markdown"
     )
-    
+    time.sleep(2)
     markup = InlineKeyboardMarkup()
     button1 = InlineKeyboardButton("ابن هاشم", callback_data="button1")
     button2 = InlineKeyboardButton("لبن", callback_data="button2")
