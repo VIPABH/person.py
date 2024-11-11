@@ -62,7 +62,7 @@ def callback_query(call):
 
 while True:
     try:
-        bot.polling(none_stop=True)  # إذا حدث خطأ، سيستمر البوت في العمل
+        bot.polling(none_stop=True)  
     except Exception as e:
         print(f"حدث خطأ: {e}")
-        time.sleep(15)  # الانتظار لفترة قصيرة قبل محاولة إعادة التشغيل
+        time.sleep(15)  
