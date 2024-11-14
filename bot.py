@@ -14,11 +14,11 @@ def send_welcome(message):
     username = message.from_user.username if message.from_user.username else "لا يوجد اسم مستخدم"
     bot.send_message(
         message.chat.id, 
-        f":عذرا[{message.from_user.first_name}](https://t.me/@{username})"
+        f": عذرا[{message.from_user.first_name}](https://t.me/@{username})"
         f" يرجى الانتظار ثلاث ثواني بعد الضغطة، البوت يتأخر قليلاً لأغراض الأمان.\n",
         parse_mode="Markdown"
     )
-    time.sleep(2)
+    time.sleep(3)
     markup = InlineKeyboardMarkup()
     button1 = InlineKeyboardButton("ابن هاشم", callback_data="button1")
     button2 = InlineKeyboardButton("لبن", callback_data="button2")
